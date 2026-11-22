@@ -69,7 +69,7 @@ export const profile = {
     { value: "5+", label: "Years in quality assurance" },
     { value: "3", label: "Companies across banking & IT services" },
   ],
-  focus: ["Manual Testing", "Automation Testing", "Performance Testing"],
+  focus: ["Manual Testing", "Automation Testing", "API Testing", "Performance Testing"],
 };
 
 export const skillGroups: SkillGroup[] = [
