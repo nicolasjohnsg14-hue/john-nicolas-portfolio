@@ -223,7 +223,7 @@ const entries: Entry[] = [
     id: "automation",
     keywords: ["automation", "automated", "automate", "selenium", "specflow", "gherkin", "regression", "c#", "test suite", "ui automation", "script"],
     answer:
-      "Automation is a real part of how he tests: he builds UI and regression automation with Selenium and Specflow, writes scenarios in Gherkin and works in C#. At Genpact he shortened test cycles by moving repeatable checks into automated tests, and he built a Test Data Generator tool to take the manual work out of test data creation.",
+      "Automation is a real part of how he tests: he builds regression automation with Selenium and Specflow, writes scenarios in Gherkin and works in C#. At Genpact he shortened test cycles by moving repeatable checks into automated tests, and he built a Test Data Generator tool to take the manual work out of test data creation.",
     detail:
       "The pattern in his CV is choosing automation where it removes repetition — regression suites for stable areas, generated test data, and Selenium/Specflow for UI flows — while keeping manual and exploratory testing for what automation can't judge. He doesn't claim framework architecture or CI/CD ownership, so I won't either.",
     followUps: pick("manual", "api", "test-data"),
