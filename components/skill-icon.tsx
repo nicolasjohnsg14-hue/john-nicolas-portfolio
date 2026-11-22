@@ -16,6 +16,7 @@ import {
   Monitor,
   MonitorPlay,
   MousePointerClick,
+  Network,
   Palette,
   Repeat,
   Send,
@@ -44,7 +45,8 @@ const skillIcons: Record<string, LucideIcon> = {
   Selenium: MonitorPlay,
   Specflow: GitBranch,
   Gherkin: FileCode,
-  "Postman (API Testing)": Send,
+  "API Testing": Network,
+  Postman: Send,
   "UI Automation Testing": MousePointerClick,
   "C#": Code,
 
