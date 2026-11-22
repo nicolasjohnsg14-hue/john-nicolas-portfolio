@@ -7,6 +7,7 @@ import {
   type ChatAction,
   type Topic,
 } from "@/lib/career-chat";
+import { assetPrefix } from "@/data/profile";
 
 type Message = {
   id: number;
@@ -160,7 +161,7 @@ export function CareerChat() {
         >
           <header className="flex items-center gap-4 border-b border-line bg-surface/70 px-4 py-4">
             <img
-              src="/assistant-avatar.jpg"
+              src={`${assetPrefix}/assistant-avatar.jpg`}
               alt=""
               width={112}
               height={112}
@@ -211,7 +212,7 @@ export function CareerChat() {
               >
                 {message.role === "bot" && (
                   <img
-                    src="/assistant-avatar.jpg"
+                    src={`${assetPrefix}/assistant-avatar.jpg`}
                     alt=""
                     width={64}
                     height={64}
@@ -319,7 +320,7 @@ export function CareerChat() {
             {typing && (
               <div className="flex items-end gap-2">
                 <img
-                  src="/assistant-avatar.jpg"
+                  src={`${assetPrefix}/assistant-avatar.jpg`}
                   alt=""
                   width={64}
                   height={64}
@@ -429,7 +430,7 @@ export function CareerChat() {
         className="inline-flex h-20 items-center gap-3 rounded-full border border-line bg-surface pl-3 pr-6 text-base font-medium text-ink shadow-[0_8px_24px_-12px_rgba(16,24,32,0.45)] transition-colors hover:border-accent/40 hover:text-accent-deep"
       >
         <img
-          src="/assistant-avatar.jpg"
+          src={`${assetPrefix}/assistant-avatar.jpg`}
           alt=""
           width={64}
           height={64}

@@ -20,6 +20,12 @@ export type WorkItem = {
   tags: string[];
 };
 
+/**
+ * Prefix for files in /public. Empty on local dev and Freebuff Sites; set for
+ * the GitHub Pages build, which serves the site from /john-nicolas-portfolio/.
+ */
+export const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
@@ -43,7 +49,7 @@ export const profile = {
   phone: "09670993071",
   linkedin: "https://www.linkedin.com/in/nicolasjm001",
   linkedinLabel: "linkedin.com/in/nicolasjm001",
-  resumeUrl: "/cv.pdf",
+  resumeUrl: `${assetPrefix}/cv.pdf`,
   resumeFileName: "John-Michael-Nicolas-CV.pdf",
   /** Set to e.g. "/hero.jpg" once the portrait photo is added to /public. */
   portrait: null as string | null,
