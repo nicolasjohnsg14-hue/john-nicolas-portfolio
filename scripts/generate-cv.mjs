@@ -55,10 +55,10 @@ doc.font("Helvetica").fontSize(9.2).fillColor(muted).text(
 doc.moveDown(0.18);
 // Portfolio URL on its own line: stays one clean string for ATS parsing, and is clickable in PDF viewers.
 doc.font("Helvetica").fontSize(9.2).fillColor(accent).text(
-  "Portfolio: john-michael-nicolas-portfolio-iiia42.freebuff.site",
+  "Portfolio: nicolasjohnsg14-hue.github.io/john-nicolas-portfolio",
   left,
   doc.y,
-  { width, link: "https://john-michael-nicolas-portfolio-iiia42.freebuff.site" },
+  { width, link: "https://nicolasjohnsg14-hue.github.io/john-nicolas-portfolio/" },
 );
 rule(14);
 
