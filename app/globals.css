@@ -264,18 +264,18 @@ html[data-theme="dark"] .cursor-glow {
 }
 
 /* Landscape phones and other short, narrow windows: the bottom-anchored card
-   left the message list under 130px while the longest answer needs ~220px at
-   this width, so the panel becomes a sheet. It spans the window height and
-   widens to 560px — long bubbles need fewer lines — and its header, composer
-   padding and avatar tighten to hand the height back to the messages. Nothing
-   is removed: the input, close button and every answer still work.
+   left the message list under 130px, so the panel becomes a sheet. It spans
+   the window height, widens to 680px — the longest answer drops from 336px to
+   205px in fewer, longer lines — and its header, composer and message padding
+   tighten to hand the height back to the messages. Nothing is removed: the
+   input, close button and every answer still work.
    Wider short windows (1280×560) keep the compact card below the header. */
 @media (min-width: 640px) and (max-width: 1023px) and (max-height: 560px) {
   .chat-panel {
-    top: 0.5rem;
-    bottom: 0.5rem;
+    top: 0.25rem;
+    bottom: 0.25rem;
     height: auto;
-    width: min(560px, calc(100vw - 1.5rem));
+    width: min(680px, calc(100vw - 1.5rem));
   }
 
   .chat-panel > header {
@@ -285,6 +285,10 @@ html[data-theme="dark"] .cursor-glow {
   .chat-panel > header > img {
     height: 2rem;
     width: 2rem;
+  }
+
+  .chat-panel [data-chat-messages] {
+    padding-block: 0.5rem;
   }
 
   .chat-panel > div:last-child {
