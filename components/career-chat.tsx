@@ -427,16 +427,16 @@ export function CareerChat() {
         }}
         aria-expanded={open}
         aria-label={open ? "Close career Q&A" : "Open career Q&A chat"}
-        className="inline-flex h-20 items-center gap-3 rounded-full border border-line bg-surface pl-3 pr-6 text-base font-medium text-ink shadow-[0_8px_24px_-12px_rgba(16,24,32,0.45)] transition-colors hover:border-accent/40 hover:text-accent-deep"
+        className="inline-flex h-14 w-14 items-center justify-center gap-0 rounded-full border border-line bg-surface p-0 text-base font-medium text-ink shadow-[0_8px_24px_-12px_rgba(16,24,32,0.45)] transition-colors hover:border-accent/40 hover:text-accent-deep sm:h-20 sm:w-auto sm:justify-start sm:gap-3 sm:pl-3 sm:pr-6"
       >
         <img
           src={`${assetPrefix}/assistant-avatar.jpg`}
           alt=""
           width={64}
           height={64}
-          className="h-16 w-16 rounded-full border border-line object-cover"
+          className="h-12 w-12 rounded-full border border-line object-cover sm:h-16 sm:w-16"
         />
-        Ask about John&rsquo;s work
+        <span className="hidden sm:inline">Ask about John&rsquo;s work</span>
       </button>
       </span>
       </div>
