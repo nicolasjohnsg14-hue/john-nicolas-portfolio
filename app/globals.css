@@ -205,31 +205,22 @@ html[data-theme="dark"] .cursor-glow {
   line-height: 1.45;
 }
 
-/* Phones held upright: the panel becomes a near-full-height sheet. */
-@media (max-width: 639px) {
-  .chat-panel {
-    bottom: 1rem;
-    height: min(44rem, calc(100dvh - 6.5rem));
-  }
+/* The panel grows into whatever height the window gives it instead of stopping
+   at a fixed 38rem: a near-full-height sheet on phones held upright, and a card
+   that reaches up to just under the site header on tablets and desktops. It
+   covers the launcher while open; the header's close button still shuts it.
+   Shorter windows override the height in the rules below. */
+.chat-panel {
+  bottom: 1rem;
+  height: min(44rem, calc(100dvh - 6.5rem));
 }
 
-/* Tablets and desktops: the card drops to the bottom edge and runs up to just
-   under the site header, so a long answer gets the full height of the window.
-   It covers the launcher while open; the header's close button still shuts it.
-   Landscape keeps the original compact card, which is tuned separately below. */
-@media (min-width: 640px) and (min-height: 561px) {
-  .chat-panel {
-    bottom: 1rem;
-    height: min(44rem, calc(100dvh - 6.5rem));
-  }
-}
-
-/* Laptop windows only a few hundred pixels tall (1366×640, 1280×600): the card
-   above leaves the message list under ~300px, so it widens and its own header
-   tightens up. A wider bubble needs fewer lines, which buys more height here
-   than stealing it from the page would; the site header stays visible and no
-   chat feature is removed. Above this height the standard card fits again. */
-@media (min-width: 640px) and (min-height: 561px) and (max-height: 760px) {
+/* Laptop windows up to 760px tall (1366×640, 1366×760): the card above leaves
+   the message list under ~300px, so it drops to 8px off the bottom edge, widens
+   to 460px and its own header tightens up. A wider bubble needs fewer lines,
+   which buys more height here than stealing it from the page would; the site
+   header stays visible and no chat feature is removed. */
+@media (min-width: 640px) and (max-height: 760px) {
   .chat-panel {
     bottom: 0.5rem;
     height: calc(100dvh - 5rem);
@@ -246,23 +237,13 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
-/* Windows just above a phone's landscape height (561–600px): at 460px the
-   tools answer is 261px against ~248px of usable list, so the card widens to
-   560px, where the same answer needs 223px. Above 600px the 460px card fits
-   again, so it stays as it was. */
-@media (min-width: 640px) and (min-height: 561px) and (max-height: 600px) {
+/* Below 600px tall the longest answer still overruns the list at 460px (261px
+   of answer against ~248px of usable list), so the card widens to 560px, where
+   that answer needs 223px. This also serves wide windows shorter than a phone
+   on its side (1280×560, 1024×560): they keep the site header and a 560px card
+   instead of the narrow landscape sheet, which is capped at 1023px wide. */
+@media (min-width: 640px) and (max-height: 600px) {
   .chat-panel {
-    width: 560px;
-  }
-}
-
-/* Wide windows that are shorter than a phone on its side (1280×560): they are
-   too wide for the landscape sheet above and too short for the 400px card, so
-   they get the same 560px card, anchored just under the site header. */
-@media (min-width: 1024px) and (max-height: 560px) {
-  .chat-panel {
-    bottom: 0.5rem;
-    height: calc(100dvh - 5rem);
     width: 560px;
   }
 }
