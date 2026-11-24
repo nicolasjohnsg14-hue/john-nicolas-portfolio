@@ -275,7 +275,7 @@ html[data-theme="dark"] .cursor-glow {
     top: 0.25rem;
     bottom: 0.25rem;
     height: auto;
-    width: min(680px, calc(100vw - 1.5rem));
+    width: min(680px, calc(100% - 3rem));
   }
 
   .chat-panel > header {
