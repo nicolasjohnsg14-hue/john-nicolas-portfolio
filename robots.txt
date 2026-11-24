@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://nicolasjohnsg14-hue.github.io/john-nicolas-portfolio/sitemap.xml
