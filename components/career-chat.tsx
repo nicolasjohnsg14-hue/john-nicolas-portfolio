@@ -199,6 +199,7 @@ export function CareerChat() {
           <div
             ref={listRef}
             aria-live="polite"
+            data-chat-messages
             className="min-h-0 flex-1 space-y-3 overflow-y-auto px-4 py-4"
           >
             {messages.map((message) => (
@@ -221,6 +222,7 @@ export function CareerChat() {
                 )}
                 <div className="max-w-[85%] space-y-1.5">
                   <p
+                    data-chat-bubble
                     className={`whitespace-pre-line rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
                       message.role === "user"
                         ? "rounded-br-md bg-ink text-paper"
