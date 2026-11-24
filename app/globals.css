@@ -263,6 +263,43 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
+/* Landscape phones and other short, narrow windows: the bottom-anchored card
+   left the message list under 130px while the longest answer needs ~220px at
+   this width, so the panel becomes a sheet. It spans the window height and
+   widens to 560px — long bubbles need fewer lines — and its header, composer
+   padding and avatar tighten to hand the height back to the messages. Nothing
+   is removed: the input, close button and every answer still work.
+   Wider short windows (1280×560) keep the compact card below the header. */
+@media (min-width: 640px) and (max-width: 1023px) and (max-height: 560px) {
+  .chat-panel {
+    top: 0.5rem;
+    bottom: 0.5rem;
+    height: auto;
+    width: min(560px, calc(100vw - 1.5rem));
+  }
+
+  .chat-panel > header {
+    padding-block: 0.25rem;
+  }
+
+  .chat-panel > header > img {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .chat-panel > div:last-child {
+    padding-block: 0.5rem;
+  }
+
+  .chat-panel form {
+    margin-top: 0.5rem;
+  }
+
+  .chat-panel input {
+    height: 2.25rem;
+  }
+}
+
 /* First-visit attention ring around the assistant launcher. A conic gradient
    rotates on its own layer, so the animation stays on the compositor. */
 .halo {
