@@ -224,6 +224,28 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
+/* Laptop windows only a few hundred pixels tall (1366×640, 1280×600): the card
+   above leaves the message list under ~300px, so it widens and its own header
+   tightens up. A wider bubble needs fewer lines, which buys more height here
+   than stealing it from the page would; the site header stays visible and no
+   chat feature is removed. Above this height the standard card fits again. */
+@media (min-width: 640px) and (min-height: 561px) and (max-height: 760px) {
+  .chat-panel {
+    bottom: 0.5rem;
+    height: calc(100dvh - 5rem);
+    width: 460px;
+  }
+
+  .chat-panel > header {
+    padding-block: 0.75rem;
+  }
+
+  .chat-panel > header > img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+
 /* Short viewports (phones held sideways) leave the panel only ~260px tall, so
    the header tightens up and the suggestion chips give way to the messages. */
 @media (max-height: 560px) {
