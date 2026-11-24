@@ -191,6 +191,23 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
+/* Short viewports (phones held sideways) leave the panel only ~260px tall, so
+   the header tightens up and the suggestion chips give way to the messages. */
+@media (max-height: 560px) {
+  .chat-panel > header {
+    padding-block: 0.5rem;
+  }
+
+  .chat-panel > header > img {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .chat-panel [data-chat-suggestions] {
+    display: none;
+  }
+}
+
 /* First-visit attention ring around the assistant launcher. A conic gradient
    rotates on its own layer, so the animation stays on the compositor. */
 .halo {

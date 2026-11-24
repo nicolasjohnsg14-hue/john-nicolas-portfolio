@@ -159,13 +159,13 @@ export function CareerChat() {
           aria-label="Career questions about John Michael Nicolas"
           className="chat-panel fixed inset-x-3 bottom-28 z-[60] flex h-[min(38rem,calc(100dvh-8rem))] flex-col overflow-hidden rounded-2xl border border-line bg-paper shadow-[0_24px_60px_-24px_rgba(16,24,32,0.45)] sm:inset-x-auto sm:right-6 sm:w-[400px]"
         >
-          <header className="flex items-center gap-4 border-b border-line bg-surface/70 px-4 py-4">
+          <header className="flex items-center gap-3 border-b border-line bg-surface/70 px-4 py-3 sm:gap-4 sm:py-4">
             <img
               src={`${assetPrefix}/assistant-avatar.jpg`}
               alt=""
               width={112}
               height={112}
-              className="h-28 w-28 shrink-0 rounded-full border border-line object-cover"
+              className="h-14 w-14 shrink-0 rounded-full border border-line object-cover sm:h-28 sm:w-28"
             />
             <div className="min-w-0">
               <p className="text-lg font-semibold text-ink">Career Q&amp;A</p>
@@ -216,7 +216,7 @@ export function CareerChat() {
                     alt=""
                     width={64}
                     height={64}
-                    className="h-16 w-16 shrink-0 rounded-full border border-line object-cover"
+                    className="h-9 w-9 shrink-0 rounded-full border border-line object-cover sm:h-16 sm:w-16"
                   />
                 )}
                 <div className="max-w-[85%] space-y-1.5">
@@ -324,7 +324,7 @@ export function CareerChat() {
                   alt=""
                   width={64}
                   height={64}
-                  className="h-16 w-16 shrink-0 rounded-full border border-line object-cover"
+                  className="h-9 w-9 shrink-0 rounded-full border border-line object-cover sm:h-16 sm:w-16"
                 />
                 <div
                   role="status"
@@ -344,33 +344,35 @@ export function CareerChat() {
           </p>
 
           <div className="border-t border-line px-4 py-3">
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
-              Suggested topics
-            </p>
-            <ul className="mt-2 flex flex-wrap gap-1.5">
-              {canExpand && (
-                <li>
-                  <button
-                    type="button"
-                    onClick={() => ask("Tell me more")}
-                    className="rounded-full border border-accent/40 bg-accent-soft/60 px-2.5 py-1 text-[12px] font-medium text-accent-deep transition-colors hover:border-accent"
-                  >
-                    Tell me more
-                  </button>
-                </li>
-              )}
-              {suggestions.map((topic) => (
-                <li key={topic.id}>
-                  <button
-                    type="button"
-                    onClick={() => ask(topic.prompt)}
-                    className="rounded-full border border-line bg-surface px-2.5 py-1 text-[12px] text-ink/80 transition-colors hover:border-accent/40 hover:text-ink"
-                  >
-                    {topic.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
+            <div data-chat-suggestions>
+              <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-muted">
+                Suggested topics
+              </p>
+              <ul className="mt-2 flex flex-wrap gap-1.5">
+                {canExpand && (
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => ask("Tell me more")}
+                      className="rounded-full border border-accent/40 bg-accent-soft/60 px-2.5 py-1 text-[12px] font-medium text-accent-deep transition-colors hover:border-accent"
+                    >
+                      Tell me more
+                    </button>
+                  </li>
+                )}
+                {suggestions.map((topic) => (
+                  <li key={topic.id}>
+                    <button
+                      type="button"
+                      onClick={() => ask(topic.prompt)}
+                      className="rounded-full border border-line bg-surface px-2.5 py-1 text-[12px] text-ink/80 transition-colors hover:border-accent/40 hover:text-ink"
+                    >
+                      {topic.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <form
               className="mt-3 flex items-center gap-2"
