@@ -8,7 +8,7 @@ export function Education() {
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
         <Reveal>
           <SectionHeading
-            index="05"
+            index="06"
             eyebrow="Education & recognition"
             title="Qualifications and recognition"
           />

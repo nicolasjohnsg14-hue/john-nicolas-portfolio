@@ -8,7 +8,7 @@ export function Experience() {
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
         <Reveal>
           <SectionHeading
-            index="03"
+            index="04"
             eyebrow="Experience"
             title="Five years of testing banking software"
             description="From electronic banking support to senior QA on credit bureau and core banking platforms."

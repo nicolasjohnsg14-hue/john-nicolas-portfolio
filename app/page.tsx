@@ -2,6 +2,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
+import { Approach } from "@/components/approach";
 import { Experience } from "@/components/experience";
 import { Work } from "@/components/work";
 import { Education } from "@/components/education";
@@ -19,6 +20,7 @@ export default function HomePage() {
         <Hero />
         <About />
         <Skills />
+        <Approach />
         <Experience />
         <Work />
         <Education />

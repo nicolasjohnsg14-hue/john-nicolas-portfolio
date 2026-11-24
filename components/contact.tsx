@@ -7,7 +7,7 @@ export function Contact() {
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
         <Reveal>
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-accent-soft/70">
-            06 / Contact
+            07 / Contact
           </p>
           <div className="mt-6 grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end">
             <div>

@@ -12,6 +12,11 @@ export type ExperienceItem = {
   bullets: string[];
 };
 
+export type ApproachStep = {
+  title: string;
+  description: string;
+};
+
 export type WorkItem = {
   title: string;
   category: string;
@@ -25,6 +30,9 @@ export type WorkItem = {
  * the GitHub Pages build, which serves the site from /john-nicolas-portfolio/.
  */
 export const assetPrefix = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+/** Canonical address of the published portfolio (GitHub Pages). */
+export const siteUrl = "https://nicolasjohnsg14-hue.github.io/john-nicolas-portfolio/";
 
 export const nav = [
   { label: "About", href: "#about" },
@@ -125,6 +133,29 @@ export const skillGroups: SkillGroup[] = [
       "Credit Bureau Platforms",
       "Cash Management Systems",
     ],
+  },
+];
+
+export const approach: ApproachStep[] = [
+  {
+    title: "Understand the release",
+    description:
+      "Read the requirements, walk the flow with the business and development teams, and write the test cases that define what a pass looks like.",
+  },
+  {
+    title: "Test what users do",
+    description:
+      "Run functional, non-functional, SIT and UAT cycles on the real scenarios: banking logins, SMS and OTP sign-up, cash management entries.",
+  },
+  {
+    title: "Automate what repeats",
+    description:
+      "Move stable checks into regression suites with Selenium and Specflow in C#, and generate test data with a tool I built so the data stays consistent.",
+  },
+  {
+    title: "Report with the impact",
+    description:
+      "Write defects with reproduction steps and business impact — the duplicate-entry issue I caught in the Cash Management System portal prevented a revenue loss.",
   },
 ];
 

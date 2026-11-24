@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
-import { profile } from "@/data/profile";
+import { education, profile, siteUrl } from "@/data/profile";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,17 +15,52 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const description =
+  "Portfolio of John Michael Nicolas, a Quality Assurance Engineer with over five years of experience in manual and automated testing across banking and private-sector software.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.title,
+  description,
+  url: siteUrl,
+  email: `mailto:${profile.email}`,
+  sameAs: [profile.linkedin],
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Montalban, Rizal",
+    addressCountry: "PH",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: education.institution,
+  },
+  knowsAbout: ["Software quality assurance", "Manual testing", "Automated testing"],
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${profile.name} — ${profile.title}`,
-  description:
-    "Portfolio of John Michael Nicolas, a Quality Assurance Engineer with over five years of experience in manual and automated testing across banking and private-sector software.",
+  description,
   authors: [{ name: profile.name }],
+  alternates: { canonical: "/" },
   openGraph: {
     title: `${profile.name} — ${profile.title}`,
     description:
       "Quality Assurance Engineer with 5+ years of experience in manual and automated testing for banking and credit bureau platforms.",
     type: "website",
+    url: "/",
+    siteName: profile.name,
+    locale: "en_PH",
   },
+  twitter: {
+    card: "summary",
+    title: `${profile.name} — ${profile.title}`,
+    description:
+      "Quality Assurance Engineer with 5+ years of experience in manual and automated testing for banking and credit bureau platforms.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -34,6 +69,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          // Structured data for search engines; built only from CV facts.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <script
           // Applies the saved theme (or the system default) before first paint.
           dangerouslySetInnerHTML={{

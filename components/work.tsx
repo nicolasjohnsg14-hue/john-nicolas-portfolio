@@ -8,7 +8,7 @@ export function Work() {
       <div className="mx-auto w-full max-w-6xl px-6 py-20 sm:py-24">
         <Reveal>
           <SectionHeading
-            index="04"
+            index="05"
             eyebrow="Selected work"
             title="Testing work that changed the outcome"
             description="Projects and initiatives taken directly from my QA experience in banking and credit bureau systems."
