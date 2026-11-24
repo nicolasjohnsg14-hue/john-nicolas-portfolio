@@ -309,6 +309,59 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
+/* Landscape phones with almost no height (320–355px, e.g. an iPhone SE at
+   568×320): the sheet above still leaves only ~54px of list for a 223px answer
+   because the panel is inset 4px and its header/composer keep their padding.
+   Here the panel goes edge to edge and every piece of chrome shrinks to its
+   minimum — header padding and title line-height, message and composer padding,
+   input and send button — which frees ~175px. No answer text is cut and every
+   control stays in place. */
+@media (max-height: 360px) {
+  .chat-panel {
+    top: 0.125rem;
+    right: 0.125rem;
+    bottom: 0.125rem;
+    left: 0.125rem;
+    height: auto;
+    width: auto;
+  }
+
+  .chat-panel > header {
+    padding-block: 0;
+  }
+
+  .chat-panel > header > img {
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+
+  .chat-panel > header > div > p:first-child {
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+  }
+
+  .chat-panel [data-chat-messages] {
+    padding-block: 0.25rem;
+  }
+
+  .chat-panel > div:last-child {
+    padding-block: 0.125rem;
+  }
+
+  .chat-panel form {
+    margin-top: 0.25rem;
+  }
+
+  .chat-panel input {
+    height: 2rem;
+  }
+
+  .chat-panel form button {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
 /* First-visit attention ring around the assistant launcher. A conic gradient
    rotates on its own layer, so the animation stays on the compositor. */
 .halo {
