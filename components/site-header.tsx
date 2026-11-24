@@ -97,7 +97,7 @@ export function SiteHeader() {
       <div
         id="mobile-menu"
         hidden={!open}
-        className="border-t border-line bg-paper md:hidden"
+        className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-line bg-paper md:hidden"
       >
         <nav aria-label="Mobile" className="mx-auto max-w-6xl px-6 py-4">
           <ul className="divide-y divide-line">
