@@ -191,25 +191,36 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
-/* Phones held upright: the panel becomes a near-full-height sheet so a long
-   answer reads without hunting for the scrollbar, and the message layout draws
-   slightly tighter to buy a few more lines. Tablets and desktops keep the
-   compact 38rem card. */
+/* Chat messages draw a little tighter than the page body so a long answer
+   costs fewer lines, and the panel grows into whatever space the viewport has
+   instead of stopping at a fixed 38rem. */
+.chat-panel [data-chat-messages] {
+  padding-block: 0.75rem;
+}
+
+.chat-panel [data-chat-bubble] {
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  font-size: 12.9px;
+  line-height: 1.45;
+}
+
+/* Phones held upright: the panel becomes a near-full-height sheet. */
 @media (max-width: 639px) {
   .chat-panel {
     bottom: 1rem;
     height: min(44rem, calc(100dvh - 6.5rem));
   }
+}
 
-  .chat-panel [data-chat-messages] {
-    padding-block: 0.75rem;
-  }
-
-  .chat-panel [data-chat-bubble] {
-    padding-block: 0.5rem;
-    padding-inline: 0.75rem;
-    font-size: 12.9px;
-    line-height: 1.45;
+/* Tablets and desktops: the card drops to the bottom edge and runs up to just
+   under the site header, so a long answer gets the full height of the window.
+   It covers the launcher while open; the header's close button still shuts it.
+   Landscape keeps the original compact card, which is tuned separately below. */
+@media (min-width: 640px) and (min-height: 561px) {
+  .chat-panel {
+    bottom: 1rem;
+    height: min(44rem, calc(100dvh - 6.5rem));
   }
 }
 
