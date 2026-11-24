@@ -249,9 +249,11 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
-/* Short viewports (phones held sideways) leave the panel only ~260px tall, so
-   the header tightens up and the suggestion chips give way to the messages. */
-@media (max-height: 560px) {
+/* Short viewports leave the panel little height, so the header tightens up and
+   the suggestion chips give way to the messages. The limit is 560.5px, not 560:
+   the switch sits between the 560px sheet and the 561px card, and no height we
+   test lands exactly on it, so a fractional viewport cannot flip sides. */
+@media (max-height: 560.5px) {
   .chat-panel > header {
     padding-block: 0.5rem;
   }
@@ -266,24 +268,16 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
-/* Landscape phones and other short windows: the bottom-anchored card left the
-   message list under 130px, so the panel becomes a sheet. It spans the window
-   height, widens to 680px — the longest answer drops from 336px to 205px in
-   fewer, longer lines — and its header, composer and message padding tighten to
-   hand the height back to the messages. Nothing is removed: the input, close
-   button and every answer    still work. Phones and narrow windows take the sheet up to 575px tall, tablets
-   and laptops to 560px, and wide windows keep the 560px card (site header
-   visible) down to 481px, using the sheet below that — each is the height at
-   which that width's card runs out of room for the answer. */
-@media (min-width: 640px) and (max-width: 1023px) and (max-height: 560px),
-  (min-width: 640px) and (max-height: 480px) {
-  .chat-panel {
-    top: 0.25rem;
-    bottom: 0.25rem;
-    height: auto;
-    width: min(680px, calc(100% - 3rem));
-  }
-
+/* Short windows become a sheet: the panel spans the window height so a long
+   answer gets all of it. Every width that takes the sheet shares the same
+   tightened header, composer and message padding, declared once here. Phones
+   and narrow windows take the sheet up to 574.5px tall (just under the 575px
+   card), tablets and laptops up to 560.5px, and wide windows keep the 560px
+   card with the site header visible down to 481px. The half-pixel limits sit
+   between the heights we test, so a fractional viewport cannot flip sides. */
+@media (min-width: 640px) and (max-width: 1023px) and (max-height: 560.5px),
+  (min-width: 640px) and (max-height: 480px),
+  (max-width: 639px) and (max-height: 574.5px) {
   .chat-panel > header {
     padding-block: 0.25rem;
   }
@@ -293,10 +287,7 @@ html[data-theme="dark"] .cursor-glow {
     width: 2rem;
   }
 
-  .chat-panel [data-chat-messages] {
-    padding-block: 0.375rem;
-  }
-
+  .chat-panel [data-chat-messages],
   .chat-panel > div:last-child {
     padding-block: 0.375rem;
   }
@@ -310,44 +301,27 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
-/* Phone-width windows below 576px tall — a phone on its side, or a narrow
-   desktop window. They are too narrow for the sheet above (its 24px side
-   margins cost a whole line of the longest answer) and too short for the
-   bottom card, which runs out of list around 572px, so the panel goes
-   nearly edge to edge with the sheet's tightened chrome. */
-@media (max-width: 639px) and (max-height: 575px) {
+/* Sheet geometry for tablet and laptop widths: 680px wide, 4px off the bottom
+   edge with the site header still clear above it. */
+@media (min-width: 640px) and (max-width: 1023px) and (max-height: 560.5px),
+  (min-width: 640px) and (max-height: 480px) {
   .chat-panel {
-    top: 0.125rem;
-    right: 0.125rem;
-    bottom: 0.125rem;
-    left: 0.125rem;
+    top: 0.25rem;
+    bottom: 0.25rem;
+    height: auto;
+    width: min(680px, calc(100% - 3rem));
+  }
+}
+
+/* Sheet geometry for phone-width windows: nearly edge to edge, because the wide
+   sheet's 24px side margins cost a whole line of the longest answer. The same
+   geometry serves any window under 360px tall, where that extra width is what
+   lets the answer fit. */
+@media (max-width: 639px) and (max-height: 574.5px), (max-height: 360px) {
+  .chat-panel {
+    inset: 0.125rem;
     height: auto;
     width: auto;
-  }
-
-  .chat-panel > header {
-    padding-block: 0.25rem;
-  }
-
-  .chat-panel > header > img {
-    height: 2rem;
-    width: 2rem;
-  }
-
-  .chat-panel [data-chat-messages] {
-    padding-block: 0.375rem;
-  }
-
-  .chat-panel > div:last-child {
-    padding-block: 0.375rem;
-  }
-
-  .chat-panel form {
-    margin-top: 0.5rem;
-  }
-
-  .chat-panel input {
-    height: 2.25rem;
   }
 }
 
@@ -356,17 +330,9 @@ html[data-theme="dark"] .cursor-glow {
    223px longest answer, so every piece of chrome shrinks to its minimum —
    header padding and title line-height, message and composer padding, input and
    send button — which frees ~38px more. No answer text is cut and every control
-   stays in place. */
+   stays in place. The sheet rules above already give it the edge-to-edge
+   geometry, so only the tighter chrome is declared here. */
 @media (max-height: 360px) {
-  .chat-panel {
-    top: 0.125rem;
-    right: 0.125rem;
-    bottom: 0.125rem;
-    left: 0.125rem;
-    height: auto;
-    width: auto;
-  }
-
   .chat-panel > header {
     padding-block: 0;
   }
