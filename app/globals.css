@@ -271,11 +271,13 @@ html[data-theme="dark"] .cursor-glow {
    height, widens to 680px — the longest answer drops from 336px to 205px in
    fewer, longer lines — and its header, composer and message padding tighten to
    hand the height back to the messages. Nothing is removed: the input, close
-   button and every answer still work. Narrow windows take the sheet up to 560px
-   tall; wide ones keep the 560px card (site header visible) down to 481px and
-   use the sheet below that, where that card runs out of room for the answer. */
+   button and every answer    still work. Phones and narrow windows take the sheet up to 575px tall, tablets
+   and laptops to 560px, and wide windows keep the 560px card (site header
+   visible) down to 481px, using the sheet below that — each is the height at
+   which that width's card runs out of room for the answer. */
 @media (min-width: 640px) and (max-width: 1023px) and (max-height: 560px),
-  (min-width: 640px) and (max-height: 480px) {
+  (min-width: 640px) and (max-height: 480px),
+  (max-width: 639px) and (max-height: 575px) {
   .chat-panel {
     top: 0.25rem;
     bottom: 0.25rem;
