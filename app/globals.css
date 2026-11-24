@@ -246,6 +246,27 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
+/* Windows just above a phone's landscape height (561–600px): at 460px the
+   tools answer is 261px against ~248px of usable list, so the card widens to
+   560px, where the same answer needs 223px. Above 600px the 460px card fits
+   again, so it stays as it was. */
+@media (min-width: 640px) and (min-height: 561px) and (max-height: 600px) {
+  .chat-panel {
+    width: 560px;
+  }
+}
+
+/* Wide windows that are shorter than a phone on its side (1280×560): they are
+   too wide for the landscape sheet above and too short for the 400px card, so
+   they get the same 560px card, anchored just under the site header. */
+@media (min-width: 1024px) and (max-height: 560px) {
+  .chat-panel {
+    bottom: 0.5rem;
+    height: calc(100dvh - 5rem);
+    width: 560px;
+  }
+}
+
 /* Short viewports (phones held sideways) leave the panel only ~260px tall, so
    the header tightens up and the suggestion chips give way to the messages. */
 @media (max-height: 560px) {
@@ -269,7 +290,8 @@ html[data-theme="dark"] .cursor-glow {
    205px in fewer, longer lines — and its header, composer and message padding
    tighten to hand the height back to the messages. Nothing is removed: the
    input, close button and every answer still work.
-   Wider short windows (1280×560) keep the compact card below the header. */
+   Wider short windows (1280×560) keep the site header visible with the 560px
+   card set further up this file. */
 @media (min-width: 640px) and (max-width: 1023px) and (max-height: 560px) {
   .chat-panel {
     top: 0.25rem;
