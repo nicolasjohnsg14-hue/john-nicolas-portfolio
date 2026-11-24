@@ -13,7 +13,7 @@ export function Hero() {
         className="pointer-events-none absolute -top-40 right-[-12%] h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,rgba(15,118,110,0.16),transparent_65%)]"
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 pt-32 sm:pt-36 lg:pb-24 lg:pt-40">
+      <div className="hero-inner relative mx-auto w-full max-w-6xl px-6 pb-16 pt-32 sm:pt-36 lg:pb-24 lg:pt-40">
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,0.6fr)] lg:items-stretch lg:gap-16">
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted">

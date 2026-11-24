@@ -425,6 +425,7 @@ export function CareerChat() {
       <button
         ref={launchRef}
         type="button"
+        data-chat-launcher
         onClick={() => {
           setHalo(false);
           setOpen((value) => !value);
