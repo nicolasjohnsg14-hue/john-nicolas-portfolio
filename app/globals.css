@@ -276,8 +276,7 @@ html[data-theme="dark"] .cursor-glow {
    visible) down to 481px, using the sheet below that — each is the height at
    which that width's card runs out of room for the answer. */
 @media (min-width: 640px) and (max-width: 1023px) and (max-height: 560px),
-  (min-width: 640px) and (max-height: 480px),
-  (max-width: 639px) and (max-height: 575px) {
+  (min-width: 640px) and (max-height: 480px) {
   .chat-panel {
     top: 0.25rem;
     bottom: 0.25rem;
@@ -311,13 +310,53 @@ html[data-theme="dark"] .cursor-glow {
   }
 }
 
+/* Phone-width windows below 576px tall — a phone on its side, or a narrow
+   desktop window. They are too narrow for the sheet above (its 24px side
+   margins cost a whole line of the longest answer) and too short for the
+   bottom card, which runs out of list around 572px, so the panel goes
+   nearly edge to edge with the sheet's tightened chrome. */
+@media (max-width: 639px) and (max-height: 575px) {
+  .chat-panel {
+    top: 0.125rem;
+    right: 0.125rem;
+    bottom: 0.125rem;
+    left: 0.125rem;
+    height: auto;
+    width: auto;
+  }
+
+  .chat-panel > header {
+    padding-block: 0.25rem;
+  }
+
+  .chat-panel > header > img {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .chat-panel [data-chat-messages] {
+    padding-block: 0.375rem;
+  }
+
+  .chat-panel > div:last-child {
+    padding-block: 0.375rem;
+  }
+
+  .chat-panel form {
+    margin-top: 0.5rem;
+  }
+
+  .chat-panel input {
+    height: 2.25rem;
+  }
+}
+
 /* Landscape phones with almost no height (320–355px, e.g. an iPhone SE at
-   568×320): the sheet above still leaves only ~54px of list for a 223px answer
-   because the panel is inset 4px and its header/composer keep their padding.
-   Here the panel goes edge to edge and every piece of chrome shrinks to its
-   minimum — header padding and title line-height, message and composer padding,
-   input and send button — which frees ~175px. No answer text is cut and every
-   control stays in place. */
+   568×320): even the edge-to-edge sheet above leaves ~191px of list for the
+   223px longest answer, so every piece of chrome shrinks to its minimum —
+   header padding and title line-height, message and composer padding, input and
+   send button — which frees ~38px more. No answer text is cut and every control
+   stays in place. */
 @media (max-height: 360px) {
   .chat-panel {
     top: 0.125rem;
