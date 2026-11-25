@@ -1,4 +1,4 @@
-:HL["/john-nicolas-portfolio/_next/static/chunks/07n2yzbxwpceg.css","style"]
+:HL["/john-nicolas-portfolio/_next/static/chunks/2oiczy0m8er39.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"87hX3wSz7YsODP1WRZREG","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"c0AhPgluXChBhhN88xoeO","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
